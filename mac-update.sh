@@ -1,10 +1,25 @@
 #!/usr/bin/env bash
+
+## Graphics :: https://patorjk.com/software/taag/#p=display&c=echo&f=Rectangles&t=Hello%20World
+
 ## Prerequisites:
 ## homebrew :: https://brew.sh/
 ## homebrew brew-cask-upgrade :: https://github.com/buo/homebrew-cask-upgrade/
 ## homebrew mas :: https://github.com/mas-cli/mas/
+## ClamAV :: brew install clamav
 
 clear
+
+echo " "
+echo "  _____       _     _   _            _____ _           _____ _____  "
+echo " |  |  |___ _| |___| |_|_|___ ___   |     | |___ _____|  _  |  |  | "
+echo " |  |  | . | . | .'|  _| |   | . |  |   --| | .'|     |     |  |  | "
+echo " |_____|  _|___|__,|_| |_|_|_|_  |  |_____|_|__,|_|_|_|__|__|\___/  "
+echo "       |_|                   |___|                                  "
+echo " "
+clamscan -V
+echo " "
+freshclam --show-progress
 
 echo " "                                                                                                   
 echo "  _____       _     _   _            _                 _                  "
@@ -58,8 +73,11 @@ brew cleanup -n
 echo " "
 brew cleanup
 echo " "
-## Note!! downloads for any installed formulae or casks will be deleted, including downloads for even the latest versions 
-# rm -vrf "$(brew --cache)"
+## Note!! downloads for any installed formulae or casks will be deleted, including downloads for even the latest versions
+rm -vrf "$(brew --cache)"
+echo " "
+## Dump all taps, apps, casks and mac apps into ~/Brewfile
+# brew bundle dump --force --describe --file=~/Brewfile
 
 echo " "
 echo "  _____                   _ _                          _____ _____  "
